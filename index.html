@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зимний фестиваль школьного и студенческого спорта 2026</title>
+    <meta name="description" content="Главное зимнее событие для молодежи Москвы. 24 января 2026, ОК «Лужники». Лыжные гонки, мастер-классы звезд, развлечения и многое другое.">
+    <meta name="keywords" content="Зимний фестиваль, спорт, Москва, Лужники, лыжи, сноуборд, мастер-классы, 2026">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Зимний фестиваль школьного и студенческого спорта 2026">
+    <meta property="og:description" content="Присоединяйся к тысячам участников! 24 января 2026, ОК «Лужники».">
+    <meta property="og:image" content="assets/images/hero-bg.jpg">
+    <meta property="og:url" content="https://wssf2026.ru">
+    <meta property="og:type" content="website">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#242055',
+                        foreground: '#FFFFFF',
+                        primary: '#00E5FF',
+                        'primary-foreground': '#242055',
+                        accent: '#80DEEA',
+                        'accent-foreground': '#1A1A3D',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+        
+        body {
+            background-color: #242055;
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* Snow Canvas */
+        #snow-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .section-container {
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+    
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsEvent",
+      "name": "Зимний фестиваль школьного и студенческого спорта 2026",
+      "startDate": "2026-01-24",
+      "location": {
+        "@type": "Place",
+        "name": "ОК Лужники",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Москва",
+          "addressCountry": "RU"
+        }
+      },
+      "description": "Главное зимнее событие для молодежи Москвы. Соревнования, мастер-классы и развлечения.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "RUB",
+        "url": "https://wssf2026.ru/register"
+      }
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Snow Effect Canvas -->
+    <canvas id="snow-canvas"></canvas>
+
+    <!-- A. Header -->
+    <header class="fixed w-full top-0 z-50 bg-[#242055]/90 backdrop-blur-md border-b border-white/10">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2">
+                <!-- Fallback logo if image missing -->
+                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center font-bold text-primary-foreground text-xl">W</div>
+                <span class="font-bold text-lg hidden sm:block">Зимний Фест 2026</span>
+            </a>
+            
+            <nav class="hidden md:flex gap-6 text-sm font-semibold">
+                <a href="#about" class="hover:text-primary transition">О фестивале</a>
+                <a href="#program" class="hover:text-primary transition">Программа</a>
+                <a href="#disciplines" class="hover:text-primary transition">Дисциплины</a>
+                <a href="#location" class="hover:text-primary transition">Место</a>
+            </nav>
+
+            <a href="#register" class="bg-primary text-primary-foreground px-5 py-2 rounded-full font-bold hover:bg-accent transition transform hover:scale-105">
+                Регистрация
+            </a>
+        </div>
+    </header>
+
+    <!-- B. Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 section-container">
+        <div class="container mx-auto px-4 text-center">
+            <!-- Hero Logic: Image or Text -->
+            <div id="hero-visual" class="mb-8">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black uppercase leading-tight tracking-tight">
+                    Зимний фестиваль<br>
+                    <span class="text-primary">школьного и студенческого</span><br>
+                    спорта 2026
+                </h1>
+            </div>
+            
+            <p class="text-xl md:text-2xl text-gray-300 mb-4 font-light">Главное зимнее событие для молодежи Москвы</p>
+            
+            <div class="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm mb-8 border border-white/20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span class="font-semibold">24 января 2026</span>
+                <span class="mx-2">|</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <span class="font-semibold">ОК «Лужники»</span>
+            </div>
+
+            <p class="max-w-2xl mx-auto text-gray-400 mb-10 text-lg">
+                Присоединяйся к тысячам участников, соревнуйся в зимних дисциплинах и встречайся с легендами спорта.
+            </p>
+
+            <a href="#register" class="inline-block bg-primary text-primary-foreground text-lg px-8 py-4 rounded-full font-black uppercase tracking-wider hover:bg-accent transition transform hover:scale-105 shadow-[0_0_20px_rgba(0,229,255,0.5)]">
+                Стать участником
+            </a>
+        </div>
+    </section>
+
+    <!-- C. About Section -->
+    <section id="about" class="py-20 bg-[#1A1A3D]/50 section-container">
+        <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">О фестивале</h2>
+                <p class="text-gray-300 text-lg mb-6 leading-relaxed">
+                    С 2023 года фестиваль стал главной платформой для развития зимнего спорта среди подростков Москвы. Это не просто соревнования, а пространство для мотивации, где спорт сочетается с образованием и развлечениями. В 2026 году мы ожидаем рекордные 10 000 участников.
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-3">
+                        <div class="w-2 h-2 bg-primary rounded-full"></div>
+                        <span class="font-semibold">Развитие зимних видов спорта</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <div class="w-2 h-2 bg-primary rounded-full"></div>
+                        <span class="font-semibold">Поддержка талантливой молодежи</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <div class="w-2 h-2 bg-primary rounded-full"></div>
+                        <span class="font-semibold">Здоровый образ жизни</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="relative h-96 bg-white/5 rounded-2xl overflow-hidden border border-white/10 flex items-center justify-center">
+                <!-- Placeholder for About Image -->
+                <span class="text-gray-500 font-bold text-xl">About Image</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- D. Star Masterclasses -->
+    <section id="masterclasses" class="py-20 section-container">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Звездные мастер-классы</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Уникальная возможность поучиться у лучших. Олимпийские чемпионы и профессионалы поделятся секретами мастерства.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition group">
+                    <div class="h-48 bg-black/20 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-gray-600">Photo</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-1">Александр Легков</h3>
+                    <p class="text-sm text-gray-400">Лыжные гонки</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition group">
+                    <div class="h-48 bg-black/20 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-gray-600">Photo</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-1">Никита Крюков</h3>
+                    <p class="text-sm text-gray-400">Лыжные гонки</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition group">
+                    <div class="h-48 bg-black/20 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-gray-600">Photo</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-1">Илья Ковальчук</h3>
+                    <p class="text-sm text-gray-400">Хоккей</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition group">
+                    <div class="h-48 bg-black/20 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-gray-600">Photo</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-1">Денис Леонтьев</h3>
+                    <p class="text-sm text-gray-400">Сноуборд-джибинг</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- E. Sports Disciplines -->
+    <section id="disciplines" class="py-20 bg-[#1A1A3D]/50 section-container">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold mb-12 text-center">Спортивные дисциплины</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+                <div class="bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:border-primary/50 transition">
+                    <h3 class="font-bold text-lg">Лыжные гонки</h3>
+                    <p class="text-xs text-gray-400 mt-2">1.5 и 3 км</p>
+                </div>
+                <div class="bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:border-primary/50 transition">
+                    <h3 class="font-bold text-lg">Тэг-регби</h3>
+                    <p class="text-xs text-gray-400 mt-2">Бесконтактная игра</p>
+                </div>
+                <div class="bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:border-primary/50 transition">
+                    <h3 class="font-bold text-lg">Волейбол на снегу</h3>
+                </div>
+                <div class="bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:border-primary/50 transition">
+                    <h3 class="font-bold text-lg">Юкигассен</h3>
+                    <p class="text-xs text-gray-400 mt-2">Японская битва снежками</p>
+                </div>
+                <div class="bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:border-primary/50 transition">
+                    <h3 class="font-bold text-lg">Сноуборд-джибинг</h3>
+                </div>
+                <div class="bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:border-primary/50 transition">
+                    <h3 class="font-bold text-lg">Снежная эстафета</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- F. Interactive Quest -->
+    <section id="quest" class="py-20 section-container">
+        <div class="container mx-auto px-4">
+            <div class="bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl p-8 md:p-12 border border-primary/30">
+                <div class="md:flex items-center justify-between gap-12">
+                    <div class="mb-8 md:mb-0">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Интерактивный спортивный квест</h2>
+                        <p class="text-lg text-gray-200 mb-6">Преврати посещение фестиваля в игру. Зарабатывай баллы и получай призы.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                Онлайн-карта с заданиями
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                Чат-бот для трекинга
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                Обмен баллов на призы
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <div class="w-48 h-48 bg-white/10 rounded-full flex items-center justify-center border-4 border-primary/50 animate-pulse">
+                            <span class="font-bold text-xl">QR Code</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- G. Event Program -->
+    <section id="program" class="py-20 bg-[#1A1A3D]/50 section-container">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold mb-12 text-center">Программа дня</h2>
+            <div class="max-w-3xl mx-auto relative border-l-2 border-primary/30 pl-8 space-y-12">
+                <!-- Item -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-0 w-5 h-5 bg-primary rounded-full border-4 border-[#1A1A3D]"></div>
+                    <span class="text-primary font-bold text-xl block mb-1">09:00</span>
+                    <h3 class="text-2xl font-bold mb-2">Сбор гостей и регистрация</h3>
+                    <p class="text-gray-400">Получение стартовых пакетов, разминка.</p>
+                </div>
+                <!-- Item -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-0 w-5 h-5 bg-primary rounded-full border-4 border-[#1A1A3D]"></div>
+                    <span class="text-primary font-bold text-xl block mb-1">10:00</span>
+                    <h3 class="text-2xl font-bold mb-2">Церемония открытия</h3>
+                    <p class="text-gray-400">Приветственное слово организаторов и почетных гостей.</p>
+                </div>
+                <!-- Item -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-0 w-5 h-5 bg-primary rounded-full border-4 border-[#1A1A3D]"></div>
+                    <span class="text-primary font-bold text-xl block mb-1">11:00</span>
+                    <h3 class="text-2xl font-bold mb-2">Старт соревнований и мастер-классов</h3>
+                    <p class="text-gray-400">Начало работы всех спортивных площадок.</p>
+                </div>
+                <!-- Item -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-0 w-5 h-5 bg-primary rounded-full border-4 border-[#1A1A3D]"></div>
+                    <span class="text-primary font-bold text-xl block mb-1">14:00</span>
+                    <h3 class="text-2xl font-bold mb-2">Развлекательная программа</h3>
+                    <p class="text-gray-400">Концерты, конкурсы и розыгрыши призов.</p>
+                </div>
+                <!-- Item -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-0 w-5 h-5 bg-primary rounded-full border-4 border-[#1A1A3D]"></div>
+                    <span class="text-primary font-bold text-xl block mb-1">17:00</span>
+                    <h3 class="text-2xl font-bold mb-2">Награждение и закрытие</h3>
+                    <p class="text-gray-400">Вручение медалей победителям, финальное шоу.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- H. Entertainment Zone -->
+    <section id="entertainment" class="py-20 section-container">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold mb-12 text-center">Зона развлечений</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="bg-white/5 p-4 rounded-lg text-center border border-white/10">Хоккейный силомер</div>
+                <div class="bg-white/5 p-4 rounded-lg text-center border border-white/10">Гигантская дженга</div>
+                <div class="bg-white/5 p-4 rounded-lg text-center border border-white/10">Снукбол</div>
+                <div class="bg-white/5 p-4 rounded-lg text-center border border-white/10">Биатлонное стрельбище</div>
+                <div class="bg-white/5 p-4 rounded-lg text-center border border-white/10">Дартс снежками</div>
+                <div class="bg-white/5 p-4 rounded-lg text-center border border-white/10">First Aid</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- I. Location -->
+    <section id="location" class="py-20 bg-[#1A1A3D]/50 section-container">
+        <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1 h-80 bg-gray-700 rounded-2xl overflow-hidden relative">
+                <!-- Map Placeholder -->
+                <div class="absolute inset-0 flex items-center justify-center text-gray-400">
+                    Map / Image Placeholder
+                </div>
+            </div>
+            <div class="order-1 md:order-2">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">Место проведения: ОК «Лужники»</h2>
+                <p class="text-gray-300 text-lg mb-6">Современная инфраструктура, подготовленная лыжно-биатлонная трасса и большой открытый каток.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-semibold">Профессиональная трасса</span>
+                    <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-semibold">Теплые раздевалки</span>
+                    <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-semibold">Фудкорт</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- J. Statistics -->
+    <section id="stats" class="py-20 section-container">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold mb-12 text-center">Фестиваль в цифрах</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-4xl md:text-6xl font-black text-primary mb-2">10 000+</div>
+                    <div class="text-gray-400 uppercase tracking-widest text-sm">Участников</div>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-6xl font-black text-primary mb-2">4</div>
+                    <div class="text-gray-400 uppercase tracking-widest text-sm">Волейбольные площадки</div>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-6xl font-black text-primary mb-2">2</div>
+                    <div class="text-gray-400 uppercase tracking-widest text-sm">Арены для тэг-регби</div>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-6xl font-black text-primary mb-2">12</div>
+                    <div class="text-gray-400 uppercase tracking-widest text-sm">Зон активностей</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- K. CTA / Footer -->
+    <footer id="register" class="bg-[#1A1A3D] pt-20 pb-10 section-container border-t border-white/10">
+        <div class="container mx-auto px-4 text-center mb-20">
+            <h2 class="text-4xl md:text-6xl font-black mb-6">Готов стать частью истории?</h2>
+            <p class="text-xl text-gray-300 mb-10">Регистрация уже открыта. Собери команду или участвуй лично.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-primary text-primary-foreground text-lg px-8 py-4 rounded-full font-bold hover:bg-accent transition">Зарегистрироваться</button>
+                <button class="bg-transparent border-2 border-white text-white text-lg px-8 py-4 rounded-full font-bold hover:bg-white hover:text-[#242055] transition">Скачать программу</button>
+            </div>
+        </div>
+        
+        <div class="container mx-auto px-4 border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+            <div>© 2026 Зимний Фестиваль. Все права защищены.</div>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-white transition">VKontakte</a>
+                <a href="#" class="hover:text-white transition">Telegram</a>
+            </div>
+            <a href="#" class="hover:text-white transition">Политика конфиденциальности</a>
+        </div>
+    </footer>
+
+    <script src="js/snow.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
