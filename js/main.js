@@ -39,4 +39,46 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Hero logo not found, using text fallback.');
         };
     }
+    // Video Scroll Scrubbing
+    const scrollVideos = document.querySelectorAll('.scroll-video');
+
+    if (scrollVideos.length > 0) {
+        const handleScroll = () => {
+            scrollVideos.forEach(video => {
+                // Ensure video metadata is loaded
+                if (video.readyState < 1) return;
+
+                const rect = video.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                const elementHeight = rect.height;
+
+                // Calculate progress:
+                // 0 when element just enters from bottom
+                // 1 when element just leaves to top
+                const totalTravel = windowHeight + elementHeight;
+                const distanceCovered = windowHeight - rect.top;
+                let progress = distanceCovered / totalTravel;
+
+                // Clamp progress between 0 and 1
+                progress = Math.max(0, Math.min(1, progress));
+
+                if (Number.isFinite(video.duration)) {
+                    video.currentTime = video.duration * progress;
+                }
+            });
+        };
+
+        window.addEventListener('scroll', () => {
+            requestAnimationFrame(handleScroll);
+        });
+
+        // Initialize when metadata is loaded
+        scrollVideos.forEach(video => {
+            if (video.readyState >= 1) {
+                handleScroll();
+            } else {
+                video.addEventListener('loadedmetadata', handleScroll);
+            }
+        });
+    }
 });
