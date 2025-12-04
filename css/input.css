@@ -56,6 +56,31 @@
         position: relative;
         z-index: 10;
     }
+
+    /* Scroll Reveal Animation */
+    .reveal {
+        @apply opacity-0 translate-y-8 transition-all duration-1000 ease-out;
+        will-change: opacity, transform;
+    }
+    
+    .reveal.active {
+        @apply opacity-100 translate-y-0;
+    }
+
+    /* Staggered delays for grid items */
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+    .delay-400 { transition-delay: 400ms; }
+}
+
+/* Disable animations if user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
 }
 
 #snow-canvas {

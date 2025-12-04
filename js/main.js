@@ -90,6 +90,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.querySelectorAll('.scroll-canvas').forEach(c => observer.observe(c));
     }
+
+    // --- Reveal on Scroll ---
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                revealObserver.unobserve(entry.target); // Animate once
+            }
+        });
+    }, {
+        root: null,
+        rootMargin: '0px 0px -10% 0px', // Trigger when element is 10% up from bottom
+        threshold: 0.1
+    });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 });
 
 // --- Classes ---
