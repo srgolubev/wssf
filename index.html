@@ -54,14 +54,17 @@
     <!-- A. Header -->
     <header class="fixed w-full top-0 z-50 bg-[#242055]/90 backdrop-blur-md border-b border-white/10">
         <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-            <div class="flex items-center gap-4">
-                <!-- Partner Logos -->
+            <!-- Partner Logos (Desktop/Tablet only) -->
+            <div class="hidden md:flex items-center gap-4">
                 <img src="assets/logo-main/dep_logo_red.png" alt="Dep Logo"
                     class="h-6 md:h-8 logo-white object-contain">
                 <img src="assets/logo-main/mosobr.png" alt="Mosobr" class="h-6 md:h-8 logo-white object-contain">
                 <img src="assets/logo-main/logo_ms.png" alt="MS" class="h-6 md:h-8 logo-white object-contain">
                 <img src="assets/logo-main/logo_mcvp.png" alt="MCVP" class="h-6 md:h-8 logo-white object-contain">
             </div>
+            
+            <!-- Mobile Logo/Title (Optional placeholder if needed, currently empty to push menu right) -->
+            <!-- Removing "Зимний Фестиваль" title from mobile header -->
 
             <nav class="hidden lg:flex gap-6 text-sm font-semibold">
                 <a href="#about" class="hover:text-primary transition">О фестивале</a>
@@ -86,8 +89,16 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-[#242055] border-t border-white/10 absolute w-full">
+        <div id="mobile-menu" class="hidden lg:hidden bg-[#242055] border-t border-white/10 absolute w-full shadow-2xl">
             <nav class="flex flex-col p-4 space-y-4 text-center">
+                <!-- Partner Logos (Mobile Menu) -->
+                <div class="pb-4 mb-4 border-b border-white/10 grid grid-cols-4 gap-2 px-2 items-center">
+                    <img src="assets/logo-main/dep_logo_red.png" alt="Dep Logo" class="w-full h-auto max-h-8 logo-white object-contain mx-auto">
+                    <img src="assets/logo-main/mosobr.png" alt="Mosobr" class="w-full h-auto max-h-8 logo-white object-contain mx-auto">
+                    <img src="assets/logo-main/logo_ms.png" alt="MS" class="w-full h-auto max-h-8 logo-white object-contain mx-auto">
+                    <img src="assets/logo-main/logo_mcvp.png" alt="MCVP" class="w-full h-auto max-h-8 logo-white object-contain mx-auto">
+                </div>
+
                 <a href="#about" class="hover:text-primary transition">О фестивале</a>
                 <a href="#program" class="hover:text-primary transition">Программа</a>
                 <a href="#disciplines" class="hover:text-primary transition">Дисциплины</a>
