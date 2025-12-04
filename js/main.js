@@ -138,6 +138,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
         easterEggObserver.observe(qrCode);
     }
+
+    // --- Easter Egg: Lena on MS Logo ---
+    const msContainer = document.getElementById('ms-logo-container');
+    const msOriginal = document.getElementById('ms-logo-original');
+    const msSecret = document.getElementById('ms-logo-secret');
+    let msTimer;
+
+    if (msContainer && msOriginal && msSecret) {
+        msContainer.addEventListener('mouseenter', () => {
+            msTimer = setTimeout(() => {
+                // Fade out original, scale up secret
+                msOriginal.classList.add('opacity-0');
+                msSecret.classList.remove('opacity-0', 'scale-0');
+            }, 5000); // 5 seconds hover
+        });
+
+        msContainer.addEventListener('mouseleave', () => {
+            clearTimeout(msTimer);
+            // Scale down secret, fade in original
+            msSecret.classList.add('opacity-0', 'scale-0');
+            msOriginal.classList.remove('opacity-0');
+        });
+    }
 });
 
 // --- Classes ---
