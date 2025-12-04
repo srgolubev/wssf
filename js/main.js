@@ -146,19 +146,43 @@ document.addEventListener('DOMContentLoaded', () => {
     let msTimer;
 
     if (msContainer && msOriginal && msSecret) {
-        msContainer.addEventListener('mouseenter', () => {
+        const startSecret = (e) => {
+            // Prevent context menu on mobile (long press menu)
+            if (e.type === 'touchstart') {
+                // We don't preventDefault here to allow scrolling if the user just swipes
+            }
+
             msTimer = setTimeout(() => {
                 // Fade out original, scale up secret
                 msOriginal.classList.add('opacity-0');
                 msSecret.classList.remove('opacity-0', 'scale-0');
-            }, 5000); // 5 seconds hover
-        });
+            }, 5000); // 5 seconds hold/hover
+        };
 
-        msContainer.addEventListener('mouseleave', () => {
+        const resetSecret = () => {
             clearTimeout(msTimer);
             // Scale down secret, fade in original
             msSecret.classList.add('opacity-0', 'scale-0');
             msOriginal.classList.remove('opacity-0');
+        };
+
+        // Mouse Events
+        msContainer.addEventListener('mouseenter', startSecret);
+        msContainer.addEventListener('mouseleave', resetSecret);
+
+        // Touch Events (Mobile)
+        msContainer.addEventListener('touchstart', startSecret, { passive: true });
+        msContainer.addEventListener('touchend', resetSecret);
+        msContainer.addEventListener('touchcancel', resetSecret);
+        
+        // Cancel if user drags/scrolls while holding
+        msContainer.addEventListener('touchmove', resetSecret, { passive: true });
+        
+        // Optional: Prevent context menu on long press for this element specifically
+        msContainer.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
         });
     }
 });
