@@ -106,6 +106,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // --- Easter Egg: Yana Peeking ---
+    const qrCode = document.getElementById('quest-qr');
+    const yana = document.getElementById('yana-easter-egg');
+    let easterEggTimer;
+
+    if (qrCode && yana) {
+        const easterEggObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Start timer when QR code is visible
+                    easterEggTimer = setTimeout(() => {
+                        // Trigger animation: Peek up from center
+                        // -50% X (center), -140% Y (move up above container), rotate
+                        yana.style.transform = 'translate(-50%, -140%) rotate(-5deg)';
+                        
+                        // Hide back after 3 seconds
+                        setTimeout(() => {
+                            yana.style.transform = 'translate(-50%, -50%)';
+                        }, 3000);
+                        
+                    }, 5000); // Wait 5 seconds
+                } else {
+                    // Cancel timer if user scrolls away
+                    clearTimeout(easterEggTimer);
+                    yana.style.transform = 'translate(-50%, -50%)'; // Reset to center
+                }
+            });
+        }, { threshold: 0.8 }); // Trigger when 80% of QR code is visible
+
+        easterEggObserver.observe(qrCode);
+    }
 });
 
 // --- Classes ---
