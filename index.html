@@ -16,103 +16,8 @@
     <meta property="og:url" content="https://srgolubev.github.io/wssf/">
     <meta property="og:type" content="website">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        background: '#242055',
-                        foreground: '#FFFFFF',
-                        primary: '#00E5FF',
-                        'primary-foreground': '#242055',
-                        accent: '#80DEEA',
-                        'accent-foreground': '#1A1A3D',
-                    },
-                    fontFamily: {
-                        sans: ['GothamPro', 'sans-serif'],
-                        display: ['MOSSPORT', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        @font-face {
-            font-family: 'MOSSPORT';
-            src: url('assets/fonts/MOSSPORT.woff') format('woff');
-            font-weight: 300;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'GothamPro';
-            src: url('assets/fonts/GothaProReg.woff') format('woff');
-            font-weight: 400;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'GothamPro';
-            src: url('assets/fonts/GothaProMed.woff') format('woff');
-            font-weight: 500;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'GothamPro';
-            src: url('assets/fonts/GothaProBol.woff') format('woff');
-            font-weight: 700;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'GothamPro';
-            src: url('assets/fonts/GothaProLig.woff') format('woff');
-            font-weight: 300;
-            font-style: normal;
-        }
-
-        body {
-            background-color: #242055;
-            color: #FFFFFF;
-            font-family: 'GothamPro', sans-serif;
-            overflow-x: hidden;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'MOSSPORT', sans-serif;
-            font-weight: 300;
-            text-transform: uppercase;
-        }
-
-        /* Make logos white */
-        .logo-white {
-            filter: brightness(0) invert(1);
-        }
-
-        /* Snow Canvas */
-        #snow-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .section-container {
-            position: relative;
-            z-index: 10;
-        }
-    </style>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- JSON-LD Schema -->
     <script type="application/ld+json">
@@ -284,8 +189,10 @@
                 <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition group">
                     <div
                         class="h-64 bg-black/20 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
+                        <video src="assets/video/legkov.mp4" muted playsinline preload="metadata"
+                            class="hidden md:block absolute inset-0 w-full h-full object-cover scroll-video"></video>
                         <canvas data-frames-path="assets/frames/legkov" data-frames-count="52"
-                            class="scroll-canvas absolute inset-0 w-full h-full object-cover"></canvas>
+                            class="scroll-canvas md:hidden absolute inset-0 w-full h-full object-cover"></canvas>
                     </div>
                     <h3 class="text-3xl text-primary mb-1">Александр Легков</h3>
                     <p class="text-sm text-gray-400">Лыжные гонки</p>
@@ -294,8 +201,10 @@
                 <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition group">
                     <div
                         class="h-64 bg-black/20 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
+                        <video src="assets/video/krukov.mp4" muted playsinline preload="metadata"
+                            class="hidden md:block absolute inset-0 w-full h-full object-cover scroll-video"></video>
                         <canvas data-frames-path="assets/frames/krukov" data-frames-count="52"
-                            class="scroll-canvas absolute inset-0 w-full h-full object-cover"></canvas>
+                            class="scroll-canvas md:hidden absolute inset-0 w-full h-full object-cover"></canvas>
                     </div>
                     <h3 class="text-3xl text-primary mb-1">Никита Крюков</h3>
                     <p class="text-sm text-gray-400">Лыжные гонки</p>
@@ -304,8 +213,10 @@
                 <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition group">
                     <div
                         class="h-64 bg-black/20 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
+                        <video src="assets/video/kovalchuk.mp4" muted playsinline preload="metadata"
+                            class="hidden md:block absolute inset-0 w-full h-full object-cover scroll-video"></video>
                         <canvas data-frames-path="assets/frames/kovalchuk" data-frames-count="52"
-                            class="scroll-canvas absolute inset-0 w-full h-full object-cover"></canvas>
+                            class="scroll-canvas md:hidden absolute inset-0 w-full h-full object-cover"></canvas>
                     </div>
                     <h3 class="text-3xl text-primary mb-1">Илья Ковальчук</h3>
                     <p class="text-sm text-gray-400">Хоккей</p>
@@ -314,8 +225,10 @@
                 <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition group">
                     <div
                         class="h-64 bg-black/20 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
+                        <video src="assets/video/leontiev.mp4" muted playsinline preload="metadata"
+                            class="hidden md:block absolute inset-0 w-full h-full object-cover scroll-video"></video>
                         <canvas data-frames-path="assets/frames/leontiev" data-frames-count="52"
-                            class="scroll-canvas absolute inset-0 w-full h-full object-cover"></canvas>
+                            class="scroll-canvas md:hidden absolute inset-0 w-full h-full object-cover"></canvas>
                     </div>
                     <h3 class="text-3xl text-primary mb-1">Денис Леонтьев</h3>
                     <p class="text-sm text-gray-400">Сноуборд-джибинг</p>

@@ -98,4 +98,9 @@ function animate() {
     requestAnimationFrame(animate);
 }
 
-animate();
+// Check for reduced motion
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (!prefersReducedMotion) {
+    animate();
+}
