@@ -6,6 +6,10 @@ let particles = [];
 const particleCount = 150; // Number of snowflakes
 const mouse = { x: -1000, y: -1000 }; // Initial mouse position off-screen
 
+// Device Orientation Gravity
+let gravityX = 0;
+let gravityY = 0;
+
 // Resize canvas to full screen
 function resize() {
     width = canvas.width = window.innerWidth;
@@ -26,6 +30,56 @@ window.addEventListener('mouseout', () => {
     mouse.y = -1000;
 });
 
+// Handle Device Orientation
+function handleOrientation(event) {
+    // gamma is the left-to-right tilt in degrees, where right is positive
+    // beta is the front-to-back tilt in degrees, where front is positive
+    
+    // Normalize values roughly between -1 and 1
+    const gamma = event.gamma; // Left/Right tilt (-90 to 90)
+    const beta = event.beta;   // Front/Back tilt (-180 to 180)
+
+    if (gamma !== null) {
+        // Limit gravity effect
+        gravityX = gamma / 20; // Divide to make movement smoother
+    }
+    
+    // Optional: Add vertical gravity control (uncomment if you want snow to fall UP when phone is upside down)
+    // if (beta !== null) {
+    //     gravityY = (beta - 45) / 20; // 45 is roughly holding phone at angle
+    // }
+}
+
+// Request permission for iOS 13+
+function requestMotionPermission() {
+    if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+        DeviceOrientationEvent.requestPermission()
+            .then(permissionState => {
+                if (permissionState === 'granted') {
+                    window.addEventListener('deviceorientation', handleOrientation);
+                }
+            })
+            .catch(console.error);
+    } else {
+        // Non-iOS devices usually allow this by default
+        window.addEventListener('deviceorientation', handleOrientation);
+    }
+    
+    // Remove listener after first interaction
+    window.removeEventListener('click', requestMotionPermission);
+    window.removeEventListener('touchstart', requestMotionPermission);
+}
+
+// Add listeners for permission on first interaction
+window.addEventListener('click', requestMotionPermission);
+window.addEventListener('touchstart', requestMotionPermission);
+
+// Try to add listener immediately for non-iOS devices
+if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission !== 'function') {
+     window.addEventListener('deviceorientation', handleOrientation);
+}
+
+
 class Snowflake {
     constructor() {
         this.reset(true);
@@ -42,9 +96,11 @@ class Snowflake {
     }
 
     update() {
-        // Gravity
+        // Gravity + Device Tilt
         this.y += this.vy;
-        this.x += this.vx;
+        
+        // Add device gravity to horizontal movement
+        this.x += this.vx + gravityX;
 
         // Mouse interaction (Repel)
         const dx = this.x - mouse.x;
@@ -64,11 +120,12 @@ class Snowflake {
 
         // Apply friction to return to normal speed
         this.vx *= this.friction;
-        // Keep falling
+        
+        // Ensure snow keeps falling down eventually, even with interaction
         if (this.vy < 1) this.vy += 0.05;
 
-        // Reset if out of bounds
-        if (this.y > height || this.x > width || this.x < 0) {
+        // Reset if out of bounds (extended bounds for tilt)
+        if (this.y > height + 10 || this.x > width + 50 || this.x < -50) {
             this.reset();
         }
     }
