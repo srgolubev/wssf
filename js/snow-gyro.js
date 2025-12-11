@@ -39,7 +39,7 @@ if (!IS_MOBILE) {
 function handleOrientation(event) {
     const gamma = event.gamma; 
     if (gamma !== null) {
-        gravityX = gamma / 10; 
+        gravityX = gamma / 20; 
     }
 }
 
