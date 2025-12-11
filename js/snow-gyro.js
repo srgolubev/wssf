@@ -3,17 +3,16 @@ const ctx = canvas.getContext('2d');
 
 let width, height;
 let particles = [];
-const particleCount = 150; // Number of snowflakes
-const mouse = { x: -1000, y: -1000 }; // Initial mouse position off-screen
+const particleCount = 150;
+const mouse = { x: -1000, y: -1000 };
 
 // Device Orientation Gravity
 let gravityX = 0;
 
-// --- DEBUG PANEL START ---
+// --- DEBUG PANEL ---
 const debugDiv = document.createElement('div');
 debugDiv.style.cssText = "position:fixed; top:60px; left:10px; color:#0f0; background:rgba(0,0,0,0.7); padding:8px; z-index:10000; font-family:monospace; font-size:12px; pointer-events:none; border-radius:4px;";
-debugDiv.innerHTML = "Sensors: Init...";
-// Ensure body exists
+debugDiv.innerHTML = "Init v2...";
 if (document.body) {
     document.body.appendChild(debugDiv);
 } else {
@@ -23,86 +22,68 @@ if (document.body) {
 function updateDebug(msg) {
     debugDiv.innerHTML = msg;
 }
-// --- DEBUG PANEL END ---
+// -------------------
 
-
-// Resize canvas to full screen
 function resize() {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
 }
-
 window.addEventListener('resize', resize);
 resize();
 
-// Track mouse position
 window.addEventListener('mousemove', (e) => {
     mouse.x = e.clientX;
     mouse.y = e.clientY;
 });
-
 window.addEventListener('mouseout', () => {
     mouse.x = -1000;
     mouse.y = -1000;
 });
 
-// Handle Device Orientation
+// Handle Orientation
 function handleOrientation(event) {
-    const gamma = event.gamma; // Left/Right tilt (-90 to 90)
-    const beta = event.beta;   // Front/Back tilt (-180 to 180)
-
-    if (gamma !== null && beta !== null) {
-        // Increase sensitivity: divide by 10 instead of 20
+    const gamma = event.gamma;
+    if (gamma !== null) {
         gravityX = gamma / 10; 
-        updateDebug(`Tilt: ${gamma.toFixed(1)}°<br>GravX: ${gravityX.toFixed(2)}`);
-    } else {
-        updateDebug("Sensor data null");
+        updateDebug(`G: ${gamma.toFixed(1)} | GX: ${gravityX.toFixed(2)}`);
     }
 }
 
-// Request permission for iOS 13+
+// Permission Request
 function requestMotionPermission() {
-    updateDebug("Tap detected. Requesting...");
+    updateDebug("Tap received. Requesting...");
     
     if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+        // iOS 13+
         DeviceOrientationEvent.requestPermission()
-            .then(permissionState => {
-                updateDebug(`Permission: ${permissionState}`);
-                if (permissionState === 'granted') {
+            .then(state => {
+                updateDebug(`Perm: ${state}`);
+                if (state === 'granted') {
                     window.addEventListener('deviceorientation', handleOrientation);
                 }
             })
             .catch(err => {
-                updateDebug(`Error: ${err}`);
-                console.error(err);
+                updateDebug(`Err: ${err.message}`);
             });
     } else {
-        // Non-iOS or older iOS
-        updateDebug("Non-iOS request (ignored)");
+        // Non-iOS
+        updateDebug("Android/PC (No perm needed)");
         window.addEventListener('deviceorientation', handleOrientation);
     }
-    
-    // Remove listeners only if permission was granted or not needed?
-    // Let's keep them if it failed, so user can try again? 
-    // Usually only first user interaction counts.
 }
 
-// Listeners
-window.addEventListener('click', requestMotionPermission);
-window.addEventListener('touchstart', requestMotionPermission);
+// iOS: Use 'click' only. 'touchstart' is risky for permission requests.
+// Using {once:true} so it runs only on the first tap.
+window.addEventListener('click', requestMotionPermission, { once: true });
 
-// Try to auto-start (Android/Desktop)
-if (typeof DeviceOrientationEvent !== 'undefined') {
-    if (typeof DeviceOrientationEvent.requestPermission !== 'function') {
-        updateDebug("Auto-starting sensors...");
-        window.addEventListener('deviceorientation', handleOrientation);
-    } else {
-        updateDebug("Waiting for Tap (iOS)...");
-    }
+// Android/PC: Try auto-start immediately
+if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission !== 'function') {
+    updateDebug("Auto-start...");
+    window.addEventListener('deviceorientation', handleOrientation);
 } else {
-    updateDebug("DeviceOrientation NOT supported");
+    // If requestPermission exists (iOS), tell user to tap
+    updateDebug("Tap screen to start!");
 }
-
 
 class Snowflake {
     constructor() {
@@ -121,9 +102,7 @@ class Snowflake {
 
     update() {
         this.y += this.vy;
-        
-        // Apply Gravity from Gyro
-        this.x += this.vx + gravityX;
+        this.x += this.vx + gravityX; // Add gravity
 
         // Mouse interaction
         const dx = this.x - mouse.x;
@@ -136,7 +115,6 @@ class Snowflake {
             const angle = Math.atan2(dy, dx);
             const pushX = Math.cos(angle) * force * 5; 
             const pushY = Math.sin(angle) * force * 5;
-
             this.vx += pushX;
             this.vy += pushY;
         }
@@ -144,8 +122,6 @@ class Snowflake {
         this.vx *= this.friction;
         if (this.vy < 1) this.vy += 0.05;
 
-        // Reset if out of bounds
-        // Increased horizontal bounds to account for strong wind
         if (this.y > height + 10 || this.x > width + 100 || this.x < -100) {
             this.reset();
         }
@@ -159,26 +135,18 @@ class Snowflake {
     }
 }
 
-// Initialize particles
 for (let i = 0; i < particleCount; i++) {
     particles.push(new Snowflake());
 }
 
-// Animation loop
 function animate() {
     ctx.clearRect(0, 0, width, height);
-    
     particles.forEach(p => {
         p.update();
         p.draw();
     });
-
     requestAnimationFrame(animate);
 }
 
-// Check for reduced motion
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-if (!prefersReducedMotion) {
-    animate();
-}
+if (!prefersReducedMotion) animate();
