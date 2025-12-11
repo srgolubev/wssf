@@ -12,27 +12,25 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install SSH Key
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+      - name: Install sshpass
+        run: sudo apt-get update && sudo apt-get install -y sshpass
 
       - name: Deploy with rsync
+        env:
+          SSHPASS: ${{ secrets.PASSWORD }}
         run: |
-          # Используем rsync для синхронизации файлов
-          # --delete удалит на сервере файлы, которых нет в репозитории (кроме исключений)
-          rsync -avz --delete \
+          # Используем sshpass для передачи пароля
+          # -o StrictHostKeyChecking=no отключает запрос подтверждения ключа сервера
+          sshpass -e rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" \
             --exclude '.git/' \
             --exclude '.github/' \
             --exclude 'node_modules/' \
-            --exclude 'server-deploy/README-SERVER.md' \
-            ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/school.sport.mos.ru/
+            ./ ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/var/www/school.sport.mos.ru/
 
       - name: Reload Nginx
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
           script: sudo systemctl reload nginx
