@@ -3,21 +3,19 @@ const ctx = canvas.getContext('2d');
 
 let width, height;
 let particles = [];
-const particleCount = 150; // Number of snowflakes
-const mouse = { x: -1000, y: -1000 }; // Initial mouse position off-screen
+const particleCount = 150; 
+const mouse = { x: -1000, y: -1000 };
 
 // Device Orientation Gravity
 let gravityX = 0;
 
-// --- UTILITY FUNCTIONS ---
+// --- UTILITY ---
 function isMobileDevice() {
     return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
 }
 const IS_MOBILE = isMobileDevice();
-// --- END UTILITY FUNCTIONS ---
 
-
-// Resize canvas to full screen
+// Resize
 function resize() {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
@@ -25,55 +23,69 @@ function resize() {
 window.addEventListener('resize', resize);
 resize();
 
-// Track mouse position (only for desktop)
+// Mouse Track (Desktop Only)
 if (!IS_MOBILE) {
     window.addEventListener('mousemove', (e) => {
         mouse.x = e.clientX;
         mouse.y = e.clientY;
     });
-
     window.addEventListener('mouseout', () => {
         mouse.x = -1000;
         mouse.y = -1000;
     });
 }
 
-
-// Handle Orientation
+// Orientation Handler
 function handleOrientation(event) {
-    const gamma = event.gamma; // Left/Right tilt (-90 to 90)
+    const gamma = event.gamma; 
     if (gamma !== null) {
-        gravityX = gamma / 10; // Increase sensitivity
+        gravityX = gamma / 10; 
     }
 }
 
 // Permission Request
 function requestMotionPermission() {
-    // Only try to request permission on iOS and if it's a function
+    // Check if permission API exists (iOS 13+)
     if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
         DeviceOrientationEvent.requestPermission()
             .then(state => {
                 if (state === 'granted') {
                     window.addEventListener('deviceorientation', handleOrientation);
+                    // Success! Remove listeners so we don't ask again
+                    cleanupListeners();
                 }
             })
             .catch(err => {
-                console.error("Gyro permission error:", err);
+                console.error("Gyro permission failed/ignored:", err);
+                // We do NOT remove listeners here, so user can tap again if they dismissed it
             });
     } else {
-        // Non-iOS or older iOS, just add listener
+        // Non-iOS or older devices: just add the listener
         window.addEventListener('deviceorientation', handleOrientation);
+        cleanupListeners();
     }
-    // Remove self after first interaction
-    window.removeEventListener('click', requestMotionPermission);
 }
 
-// Listen for first interaction to request permission (if needed)
-// This will cover the entire window/document body
-window.addEventListener('click', requestMotionPermission, { once: true });
+function cleanupListeners() {
+    window.removeEventListener('click', requestMotionPermission);
+    document.body.removeEventListener('click', requestMotionPermission);
+    window.removeEventListener('touchstart', requestMotionPermission);
+    // Reset cursor
+    document.body.style.cursor = '';
+}
 
+// Add listeners to Window and Body to cover maximum area
+// NOT using {once:true} to allow retries if first tap fails or is ignored
+window.addEventListener('click', requestMotionPermission);
+document.body.addEventListener('click', requestMotionPermission);
 
-// Android/PC: Try auto-start immediately if no explicit permission needed
+// iOS sometimes ignores clicks on non-interactive elements. 
+// Adding cursor:pointer helps hint that the body is clickable.
+if (IS_MOBILE) {
+    document.body.style.cursor = 'pointer';
+}
+
+// Try auto-start (Android)
 if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission !== 'function') {
     window.addEventListener('deviceorientation', handleOrientation);
 }
@@ -96,9 +108,9 @@ class Snowflake {
 
     update() {
         this.y += this.vy;
-        this.x += this.vx + gravityX; // Apply Gravity from Gyro
+        this.x += this.vx + gravityX; 
 
-        // Mouse interaction (Repel) - ONLY FOR DESKTOP
+        // Mouse interaction (Desktop only)
         if (!IS_MOBILE) {
             const dx = this.x - mouse.x;
             const dy = this.y - mouse.y;
@@ -118,6 +130,7 @@ class Snowflake {
         this.vx *= this.friction;
         if (this.vy < 1) this.vy += 0.05;
 
+        // Reset if out of bounds
         if (this.y > height + 10 || this.x > width + 100 || this.x < -100) {
             this.reset();
         }
