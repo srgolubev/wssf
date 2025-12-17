@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Hero Logic ---
     const heroVisual = document.getElementById('hero-visual');
-    const heroImageSrc = 'assets/images/hero-logo.png';
+    const heroImageSrc = heroVisual && heroVisual.dataset.heroSrc ? heroVisual.dataset.heroSrc : 'assets/images/hero-logo.png';
 
     if (heroVisual) {
         const img = new Image();
