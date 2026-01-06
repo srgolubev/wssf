@@ -74,7 +74,7 @@
             </nav>
 
             <div class="flex items-center gap-4">
-                <a href="#register"
+                <a href="#masterclasses"
                     class="hidden sm:block bg-primary text-primary-foreground px-5 py-2 rounded-full font-bold hover:bg-accent transition transform hover:scale-105 text-sm">
                     Регистрация
                 </a>
@@ -107,7 +107,7 @@
                 <a href="#program" class="hover:text-primary transition">Программа</a>
                 <a href="#disciplines" class="hover:text-primary transition">Дисциплины</a>
                 <a href="#location" class="hover:text-primary transition">Место</a>
-                <a href="#register"
+                <a href="#masterclasses"
                     class="bg-primary text-primary-foreground px-5 py-2 rounded-full font-bold inline-block">Регистрация</a>
             </nav>
         </div>
@@ -150,7 +150,7 @@
                 Присоединяйся к тысячам участников, соревнуйся в зимних дисциплинах и встречайся с легендами спорта.
             </p>
 
-            <a href="#register"
+            <a href="#masterclasses"
                 class="inline-block bg-primary text-primary-foreground text-base px-6 py-3 rounded-full font-black uppercase tracking-wider hover:bg-accent transition transform hover:scale-105 shadow-[0_0_15px_rgba(0,229,255,0.5)]">
                 Стать участником
             </a>
@@ -165,7 +165,7 @@
                 <p class="text-gray-300 text-lg mb-6 leading-relaxed">
                     С 2023 года фестиваль стал главной платформой для развития зимнего спорта среди подростков Москвы.
                     Это не просто соревнования, а пространство для мотивации, где спорт сочетается с образованием и
-                    развлечениями. В 2026 году мы ожидаем рекордные 10 000 участников.
+                    развлечениями.
                 </p>
                 <ul class="space-y-4">
                     <li class="flex items-center gap-3">
@@ -190,6 +190,56 @@
         </div>
     </section>
 
+    <!-- Festival Venues Section -->
+    <section id="venues" class="py-20 section-container">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl mb-12 text-center reveal">Площадки фестиваля</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Venue 1: Ski-Biathlon -->
+                <div
+                    class="reveal delay-100 bg-white/5 rounded-2xl overflow-hidden border border-white/10 group hover:border-primary/50 transition flex flex-col">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="assets/images/biathlon.webp" alt="Лыжно-биатлонная трасса"
+                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-bold mb-4 uppercase text-primary font-display tracking-wide">ОК
+                            «ЛУЖНИКИ»<br><span class="text-white">ЛЫЖНО-БИАТЛОННАЯ ТРАССА</span></h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed flex-grow">
+                            Современная лыжно-биатлонная трасса комплекса «Лужники» обеспечивает комфортные условия для
+                            соревнований и тренировок зимних видов спорта.
+                        </p>
+                        <div>
+                            <a href="#register"
+                                class="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-full font-bold hover:bg-accent transition transform hover:scale-105 text-sm uppercase tracking-wider">Регистрация</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Venue 2: Ice Rink -->
+                <div
+                    class="reveal delay-200 bg-white/5 rounded-2xl overflow-hidden border border-white/10 group hover:border-primary/50 transition flex flex-col">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="assets/images/hokkey-power.webp" alt="Каток"
+                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-bold mb-4 uppercase text-primary font-display tracking-wide">КАТОК
+                            ДЛЯ<br><span class="text-white">ФИГУРНОГО КАТАНИЯ И ХОККЕЯ</span></h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed flex-grow">
+                            Большой открытый каток позволяет проводить массовые мероприятия по хоккею и фигурному
+                            катанию с участием школьников и студентов.
+                        </p>
+                        <div>
+                            <a href="#register"
+                                class="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-full font-bold hover:bg-accent transition transform hover:scale-105 text-sm uppercase tracking-wider">Регистрация</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- D. Star Masterclasses -->
     <section id="masterclasses" class="py-20 section-container">
         <div class="container mx-auto px-4">
@@ -201,56 +251,89 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Card 1 -->
-                <div
-                    class="reveal delay-100 bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition group">
+                <div class="h-full">
                     <div
-                        class="h-64 bg-black/20 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
-                        <video src="assets/video/legkov.mp4" muted playsinline preload="metadata"
-                            class="hidden md:block absolute inset-0 w-full h-full object-cover scroll-video"></video>
-                        <canvas data-frames-path="assets/frames/legkov" data-frames-count="52"
-                            class="scroll-canvas md:hidden absolute inset-0 w-full h-full object-cover"></canvas>
+                        class="reveal delay-100 bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition group flex flex-col h-full">
+                        <div
+                            class="h-64 bg-black/20 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative shrink-0">
+                            <video src="assets/video/krukov.mp4" muted playsinline preload="metadata"
+                                class="hidden md:block absolute inset-0 w-full h-full object-cover scroll-video"></video>
+                            <canvas data-frames-path="assets/frames/krukov" data-frames-count="52"
+                                class="scroll-canvas md:hidden absolute inset-0 w-full h-full object-cover"></canvas>
+                        </div>
+                        <h3 class="text-3xl text-primary mb-1">Никита Крюков</h3>
+                        <p class="text-sm text-gray-400 mb-4">Лыжные гонки</p>
+                        <p class="text-gray-300 text-sm mb-6 leading-relaxed flex-grow">
+                            Олимпийский чемпион поделится стратегиями подготовки к соревнованиям, техниками эффективного
+                            скольжения и методами улучшения выносливости для достижения высоких результатов.
+                        </p>
+                        <a href="#register"
+                            class="mt-auto inline-block w-full text-center bg-primary/10 text-primary border border-primary/50 px-4 py-2 rounded-full font-bold hover:bg-primary hover:text-primary-foreground transition text-sm">Регистрация</a>
                     </div>
-                    <h3 class="text-3xl text-primary mb-1">Александр Легков</h3>
-                    <p class="text-sm text-gray-400">Лыжные гонки</p>
                 </div>
+
                 <!-- Card 2 -->
-                <div
-                    class="reveal delay-200 bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition group">
+                <div class="h-full">
                     <div
-                        class="h-64 bg-black/20 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
-                        <video src="assets/video/krukov.mp4" muted playsinline preload="metadata"
-                            class="hidden md:block absolute inset-0 w-full h-full object-cover scroll-video"></video>
-                        <canvas data-frames-path="assets/frames/krukov" data-frames-count="52"
-                            class="scroll-canvas md:hidden absolute inset-0 w-full h-full object-cover"></canvas>
+                        class="reveal delay-200 bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition group flex flex-col h-full">
+                        <div
+                            class="h-64 bg-black/20 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative shrink-0">
+                            <video src="assets/video/kovalchuk.mp4" muted playsinline preload="metadata"
+                                class="hidden md:block absolute inset-0 w-full h-full object-cover scroll-video"></video>
+                            <canvas data-frames-path="assets/frames/kovalchuk" data-frames-count="52"
+                                class="scroll-canvas md:hidden absolute inset-0 w-full h-full object-cover"></canvas>
+                        </div>
+                        <h3 class="text-3xl text-primary mb-1">Илья Ковальчук</h3>
+                        <p class="text-sm text-gray-400 mb-4">Хоккей</p>
+                        <p class="text-gray-300 text-sm mb-6 leading-relaxed flex-grow">
+                            Олимпийский чемпион поделится опытом хоккейных тренировок и наставничества, раскрывая
+                            секреты профессионального успеха на льду.
+                        </p>
+                        <a href="#register"
+                            class="mt-auto inline-block w-full text-center bg-primary/10 text-primary border border-primary/50 px-4 py-2 rounded-full font-bold hover:bg-primary hover:text-primary-foreground transition text-sm">Регистрация</a>
                     </div>
-                    <h3 class="text-3xl text-primary mb-1">Никита Крюков</h3>
-                    <p class="text-sm text-gray-400">Лыжные гонки</p>
                 </div>
+
                 <!-- Card 3 -->
-                <div
-                    class="reveal delay-300 bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition group">
+                <div class="h-full">
                     <div
-                        class="h-64 bg-black/20 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
-                        <video src="assets/video/kovalchuk.mp4" muted playsinline preload="metadata"
-                            class="hidden md:block absolute inset-0 w-full h-full object-cover scroll-video"></video>
-                        <canvas data-frames-path="assets/frames/kovalchuk" data-frames-count="52"
-                            class="scroll-canvas md:hidden absolute inset-0 w-full h-full object-cover"></canvas>
+                        class="reveal delay-300 bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition group flex flex-col h-full">
+                        <div
+                            class="h-64 bg-black/20 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative shrink-0">
+                            <canvas data-frames-path="assets/frames/ignatov" data-frames-count="57"
+                                class="scroll-canvas absolute inset-0 w-full h-full object-cover"></canvas>
+                        </div>
+                        <h3 class="text-3xl text-primary mb-1">Макар Игнатов</h3>
+                        <p class="text-sm text-gray-400 mb-4">Фигурное катание</p>
+                        <p class="text-gray-300 text-sm mb-6 leading-relaxed flex-grow">
+                            Серебряный призёр чемпионата России, расскажет систему ежедневных тренировок
+                            профессионального уровня, методы отработки прыжков и вращений, способы преодоления страха
+                            перед выступлениями, принципы работы над артистизмом.
+                        </p>
+                        <a href="#register"
+                            class="mt-auto inline-block w-full text-center bg-primary/10 text-primary border border-primary/50 px-4 py-2 rounded-full font-bold hover:bg-primary hover:text-primary-foreground transition text-sm">Регистрация</a>
                     </div>
-                    <h3 class="text-3xl text-primary mb-1">Илья Ковальчук</h3>
-                    <p class="text-sm text-gray-400">Хоккей</p>
                 </div>
+
                 <!-- Card 4 -->
-                <div
-                    class="reveal delay-400 bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition group">
+                <div class="h-full">
                     <div
-                        class="h-64 bg-black/20 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
-                        <video src="assets/video/leontiev.mp4" muted playsinline preload="metadata"
-                            class="hidden md:block absolute inset-0 w-full h-full object-cover scroll-video"></video>
-                        <canvas data-frames-path="assets/frames/leontiev" data-frames-count="52"
-                            class="scroll-canvas md:hidden absolute inset-0 w-full h-full object-cover"></canvas>
+                        class="reveal delay-400 bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition group flex flex-col h-full">
+                        <div
+                            class="h-64 bg-black/20 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative shrink-0">
+                            <video src="assets/video/leontiev.mp4" muted playsinline preload="metadata"
+                                class="hidden md:block absolute inset-0 w-full h-full object-cover scroll-video"></video>
+                            <canvas data-frames-path="assets/frames/leontiev" data-frames-count="52"
+                                class="scroll-canvas md:hidden absolute inset-0 w-full h-full object-cover"></canvas>
+                        </div>
+                        <h3 class="text-3xl text-primary mb-1">Денис Леонтьев</h3>
+                        <p class="text-sm text-gray-400 mb-4">Джиббинг</p>
+                        <p class="text-gray-300 text-sm mb-6 leading-relaxed flex-grow">
+                            Уникальный мастер-класс по сноуборду и трюкам джиббинга от профессионального спортсмена.
+                        </p>
+                        <a href="#register"
+                            class="mt-auto inline-block w-full text-center bg-primary/10 text-primary border border-primary/50 px-4 py-2 rounded-full font-bold hover:bg-primary hover:text-primary-foreground transition text-sm">Регистрация</a>
                     </div>
-                    <h3 class="text-3xl text-primary mb-1">Денис Леонтьев</h3>
-                    <p class="text-sm text-gray-400">Сноуборд-джибинг</p>
                 </div>
             </div>
         </div>
@@ -260,45 +343,77 @@
     <section id="disciplines" class="py-20 bg-[#1A1A3D]/50 section-container">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl md:text-5xl mb-12 text-center reveal">Спортивные дисциплины</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 1. Лыжные гонки -->
                 <div
-                    class="reveal delay-100 bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:border-primary/50 transition">
+                    class="reveal delay-100 bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:border-primary/50 transition flex flex-col items-center h-full">
                     <img src="assets/images/ski-run.webp" alt="Лыжные гонки"
-                        class="w-full h-32 md:h-64 object-cover rounded-lg mb-4">
-                    <h3 class="text-lg">Лыжные гонки</h3>
-                    <p class="text-xs text-gray-400 mt-2">1.5 и 3 км</p>
+                        class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2">Лыжные гонки</h3>
+                    <p class="text-sm text-gray-300 mb-6 flex-grow">Участники соревнуются на трассах 1,5 и 3 км, которые
+                        учитывают уровень подготовки каждого спортсмена.</p>
+                    <a href="#register"
+                        class="inline-block bg-primary/10 text-primary border border-primary/50 px-6 py-2 rounded-full font-bold hover:bg-primary hover:text-primary-foreground transition text-sm">Регистрация</a>
                 </div>
+
+                <!-- 2. Тэг-регби -->
                 <div
-                    class="reveal delay-100 bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:border-primary/50 transition">
+                    class="reveal delay-100 bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:border-primary/50 transition flex flex-col items-center h-full">
                     <img src="assets/images/tag-ragby.webp" alt="Тэг-регби"
-                        class="w-full h-32 md:h-64 object-cover rounded-lg mb-4">
-                    <h3 class="text-lg">Тэг-регби</h3>
-                    <p class="text-xs text-gray-400 mt-2">Бесконтактная игра</p>
+                        class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2">Тэг-регби</h3>
+                    <p class="text-sm text-gray-300 mb-6 flex-grow">Этот формат регби привлекает специальными лентами –
+                        «тэгами», которые игроки должны срывать у соперников вместо обычных силовых приемов.</p>
+                    <a href="#register"
+                        class="inline-block bg-primary/10 text-primary border border-primary/50 px-6 py-2 rounded-full font-bold hover:bg-primary hover:text-primary-foreground transition text-sm">Регистрация</a>
                 </div>
+
+                <!-- 3. Волейбол на снегу -->
                 <div
-                    class="reveal delay-200 bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:border-primary/50 transition">
+                    class="reveal delay-200 bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:border-primary/50 transition flex flex-col items-center h-full">
                     <img src="assets/images/volley.webp" alt="Волейбол на снегу"
-                        class="w-full h-32 md:h-64 object-cover rounded-lg mb-4">
-                    <h3 class="text-lg">Волейбол на снегу</h3>
+                        class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2">Волейбол на снегу</h3>
+                    <p class="text-sm text-gray-300 mb-6 flex-grow">Этот необычный формат требует ловкости и сноровки,
+                        превращая привычную игру в зимнее приключение на свежем воздухе.</p>
+                    <a href="#register"
+                        class="inline-block bg-primary/10 text-primary border border-primary/50 px-6 py-2 rounded-full font-bold hover:bg-primary hover:text-primary-foreground transition text-sm">Регистрация</a>
                 </div>
+
+                <!-- 4. Игра в снежки (ex-Yukigassen) -->
                 <div
-                    class="reveal delay-200 bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:border-primary/50 transition">
-                    <img src="assets/images/yukigassen.webp" alt="Юкигассен"
-                        class="w-full h-32 md:h-64 object-cover rounded-lg mb-4">
-                    <h3 class="text-lg">Юкигассен</h3>
-                    <p class="text-xs text-gray-400 mt-2">Японская битва снежками</p>
+                    class="reveal delay-200 bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:border-primary/50 transition flex flex-col items-center h-full">
+                    <img src="assets/images/yukigassen.webp" alt="Игра в снежки"
+                        class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2">Игра в снежки</h3>
+                    <p class="text-sm text-gray-300 mb-6 flex-grow">Командная игра в снежки с японскими традициями,
+                        требующая стратегического мышления и быстрой реакции.</p>
+                    <a href="#register"
+                        class="inline-block bg-primary/10 text-primary border border-primary/50 px-6 py-2 rounded-full font-bold hover:bg-primary hover:text-primary-foreground transition text-sm">Регистрация</a>
                 </div>
+
+                <!-- 5. Сноуборд-джибинг -->
                 <div
-                    class="reveal delay-300 bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:border-primary/50 transition">
+                    class="reveal delay-300 bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:border-primary/50 transition flex flex-col items-center h-full">
                     <img src="assets/images/jibbing.webp" alt="Сноуборд-джибинг"
-                        class="w-full h-32 md:h-64 object-cover rounded-lg mb-4">
-                    <h3 class="text-lg">Сноуборд-джибинг</h3>
+                        class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2">Сноуборд-джибинг</h3>
+                    <p class="text-sm text-gray-300 mb-6 flex-grow">Сноуборд-джибинг сочетает в себе техническую
+                        сложность и творческий подход, позволяя участникам выполнять динамичные трюки.</p>
+                    <a href="#register"
+                        class="inline-block bg-primary/10 text-primary border border-primary/50 px-6 py-2 rounded-full font-bold hover:bg-primary hover:text-primary-foreground transition text-sm">Регистрация</a>
                 </div>
+
+                <!-- 6. Футбол в валенках (ex-Estafeta) -->
                 <div
-                    class="reveal delay-300 bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:border-primary/50 transition">
-                    <img src="assets/images/estafeta.webp" alt="Снежная эстафета"
-                        class="w-full h-32 md:h-64 object-cover rounded-lg mb-4">
-                    <h3 class="text-lg">Снежная эстафета</h3>
+                    class="reveal delay-300 bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:border-primary/50 transition flex flex-col items-center h-full">
+                    <img src="assets/images/estafeta.webp" alt="Футбол в валенках"
+                        class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2">Футбол в валенках</h3>
+                    <p class="text-sm text-gray-300 mb-6 flex-grow">Весёлая зимняя игра на снегу: команды соревнуются в
+                        валенках, что делает матч непредсказуемым и смешным.</p>
+                    <a href="#register"
+                        class="inline-block bg-primary/10 text-primary border border-primary/50 px-6 py-2 rounded-full font-bold hover:bg-primary hover:text-primary-foreground transition text-sm">Регистрация</a>
                 </div>
             </div>
         </div>
@@ -311,52 +426,30 @@
                 class="bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl p-8 md:p-12 border border-primary/30 reveal">
                 <div class="md:flex items-center justify-between gap-12">
                     <div class="mb-8 md:mb-0">
-                        <h2 class="text-3xl md:text-4xl mb-4">Интерактивный спортивный квест</h2>
+                        <h2 class="text-3xl md:text-4xl mb-4">Спортивный квест</h2>
                         <p class="text-lg text-gray-200 mb-6">Преврати посещение фестиваля в игру. Зарабатывай баллы и
                             получай призы.</p>
-                        <ul class="space-y-3">
-                            <li class="flex items-center gap-3">
-                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                Получи маршрутный лист с активностями
+                        <ul class="space-y-4 text-gray-300">
+                            <li class="flex gap-3">
+                                <span class="text-primary text-xl">•</span>
+                                <div>Каждый участник получает карточку с заданиями.</div>
                             </li>
-                            <li class="flex items-center gap-3">
-                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                Собери баллы за участие
+                            <li class="flex gap-3">
+                                <span class="text-primary text-xl">•</span>
+                                <div>Участники проходят спортивные испытания и конкурсы, отмечая выполнение каждого
+                                    этапа.</div>
                             </li>
-                            <li class="flex items-center gap-3">
-                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                Обменяй баллы на призы
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                Регистрируйся в боте и участвуй в розыгрышах каждый час
+                            <li class="flex gap-3">
+                                <span class="text-primary text-xl">•</span>
+                                <div>Все завершившие испытания получают приз, а также участвуют в розыгрыше главного
+                                    приза.</div>
                             </li>
                         </ul>
                     </div>
-                    <!-- Container constrained to QR size -->
-                    <div class="relative group w-48 mx-auto">
-                        <!-- Easter Egg: Yana (Centered behind) -->
-                        <img id="yana-easter-egg" src="assets/images/yana.png" alt="Yana Peek"
-                            class="absolute left-1/2 top-1/2 w-3/5 z-0 transition-transform duration-700 ease-in-out"
-                            style="transform: translate(-50%, -50%);">
-
-                        <!-- QR Code Container -->
-                        <div class="relative z-10 bg-white p-1 rounded-xl shadow-lg">
-                            <img id="quest-qr" src="assets/images/qrcode.jpg" alt="QR Code"
-                                class="w-full h-auto rounded-lg">
-                        </div>
+                    <!-- Button Container -->
+                    <div class="relative group w-48 mx-auto flex items-center justify-center">
+                        <a href="#register"
+                            class="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-full font-bold hover:bg-accent transition transform hover:scale-105 text-sm uppercase tracking-wider text-center w-full">Регистрация</a>
                     </div>
                 </div>
             </div>
@@ -416,36 +509,47 @@
     <section id="entertainment" class="py-20 section-container">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl md:text-5xl mb-12 text-center reveal">Зона развлечений</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- 1. Curling -->
                 <div class="reveal delay-100 bg-white/5 p-4 rounded-lg text-center border border-white/10">
+                    <img src="assets/images/curling.png" alt="Керлинг" class="w-full h-32 object-cover rounded-lg mb-4">
+                    Керлинг
+                </div>
+                <!-- 2. Snow Darts -->
+                <div class="reveal delay-100 bg-white/5 p-4 rounded-lg text-center border border-white/10">
+                    <img src="assets/images/dartes.webp" alt="Снежный дартс"
+                        class="w-full h-32 object-cover rounded-lg mb-4">
+                    Снежный дартс
+                </div>
+                <!-- 3. Hockey Power -->
+                <div class="reveal delay-200 bg-white/5 p-4 rounded-lg text-center border border-white/10">
                     <img src="assets/images/hokkey-power.webp" alt="Хоккейный силомер"
                         class="w-full h-32 object-cover rounded-lg mb-4">
                     Хоккейный силомер
                 </div>
-                <div class="reveal delay-100 bg-white/5 p-4 rounded-lg text-center border border-white/10">
-                    <img src="assets/images/jenga.webp" alt="Гигантская дженга"
-                        class="w-full h-32 object-cover rounded-lg mb-4">
-                    Гигантская дженга
-                </div>
+                <!-- 4. Biathlon -->
                 <div class="reveal delay-200 bg-white/5 p-4 rounded-lg text-center border border-white/10">
+                    <img src="assets/images/biathlon.webp" alt="Биатлон (стрельбище)"
+                        class="w-full h-32 object-cover rounded-lg mb-4">
+                    Биатлон (стрельбище)
+                </div>
+                <!-- 5. Snow Relay -->
+                <div class="reveal delay-300 bg-white/5 p-4 rounded-lg text-center border border-white/10">
+                    <img src="assets/images/estafeta.webp" alt="Снежная эстафета"
+                        class="w-full h-32 object-cover rounded-lg mb-4">
+                    Снежная эстафета
+                </div>
+                <!-- 6. Snookball -->
+                <div class="reveal delay-300 bg-white/5 p-4 rounded-lg text-center border border-white/10">
                     <img src="assets/images/snookball.webp" alt="Снукбол"
                         class="w-full h-32 object-cover rounded-lg mb-4">
                     Снукбол
                 </div>
-                <div class="reveal delay-200 bg-white/5 p-4 rounded-lg text-center border border-white/10">
-                    <img src="assets/images/biathlon.webp" alt="Биатлонное стрельбище"
+                <!-- 7. Ball Pumping -->
+                <div class="reveal delay-400 bg-white/5 p-4 rounded-lg text-center border border-white/10">
+                    <img src="assets/images/ball-pumping.png" alt="Накачивание мячей на скорость"
                         class="w-full h-32 object-cover rounded-lg mb-4">
-                    Биатлонное стрельбище
-                </div>
-                <div class="reveal delay-300 bg-white/5 p-4 rounded-lg text-center border border-white/10">
-                    <img src="assets/images/dartes.webp" alt="Дартс снежками"
-                        class="w-full h-32 object-cover rounded-lg mb-4">
-                    Дартс снежками
-                </div>
-                <div class="reveal delay-300 bg-white/5 p-4 rounded-lg text-center border border-white/10">
-                    <img src="assets/images/first-aid.webp" alt="Первая помощь"
-                        class="w-full h-32 object-cover rounded-lg mb-4">
-                    Первая помощь
+                    Накачивание мячей на скорость
                 </div>
             </div>
         </div>
@@ -477,7 +581,7 @@
     </section>
 
     <!-- J. Statistics -->
-    <section id="stats" class="py-20 section-container">
+    <!-- <section id="stats" class="py-20 section-container">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl md:text-5xl mb-12 text-center reveal">Фестиваль в цифрах</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -499,7 +603,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- K. CTA / Footer -->
     <footer id="register" class="bg-[#1A1A3D] pt-20 pb-10 section-container border-t border-white/10">
@@ -507,8 +611,8 @@
             <h2 class="text-4xl md:text-6xl mb-6">Готов стать частью истории?</h2>
             <p class="text-xl text-gray-300 mb-10">Регистрация уже открыта. Собери команду или участвуй лично.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button
-                    class="bg-primary text-primary-foreground text-lg px-8 py-4 rounded-full font-bold hover:bg-accent transition">Зарегистрироваться</button>
+                <a href="#masterclasses"
+                    class="bg-primary text-primary-foreground text-lg px-8 py-4 rounded-full font-bold hover:bg-accent transition">Зарегистрироваться</a>
             </div>
         </div>
 

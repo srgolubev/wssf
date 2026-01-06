@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const rect = element.getBoundingClientRect();
             const windowHeight = window.innerHeight;
             const elementHeight = rect.height;
-            
+
             // Simple visibility check
             if (rect.bottom < 0 || rect.top > windowHeight) return;
 
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const distanceCovered = windowHeight - rect.top;
             let progress = distanceCovered / totalTravel;
             progress = Math.max(0, Math.min(1, progress));
-            
+
             item.scrubber.update(progress);
         });
     };
@@ -65,6 +65,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 element: video,
                 scrubber: new VideoScrubber(video)
             });
+        });
+
+        // Loop through canvases that are NOT hidden on desktop (fallback for missing videos)
+        document.querySelectorAll('.scroll-canvas').forEach(canvas => {
+            if (getComputedStyle(canvas).display !== 'none') {
+                // Initialize immediately for desktop (no lazy load needed or use same logic)
+                const scrubber = new ImageSequenceScrubber(canvas);
+                activeScrubbers.push({
+                    element: canvas,
+                    scrubber: scrubber
+                });
+                scrubber.update(0);
+            }
+        });
+
+        // Loop through canvases that are NOT hidden on desktop (fallback for missing videos)
+        document.querySelectorAll('.scroll-canvas').forEach(canvas => {
+            if (getComputedStyle(canvas).display !== 'none') {
+                // Initialize immediately for desktop (no lazy load needed or use same logic)
+                const scrubber = new ImageSequenceScrubber(canvas);
+                activeScrubbers.push({
+                    element: canvas,
+                    scrubber: scrubber
+                });
+                scrubber.update(0);
+            }
         });
         // Initial update
         handleScroll();
@@ -121,12 +147,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         // Trigger animation: Peek up from center
                         // -50% X (center), -140% Y (move up above container), rotate
                         yana.style.transform = 'translate(-50%, -140%) rotate(-5deg)';
-                        
+
                         // Hide back after 3 seconds
                         setTimeout(() => {
                             yana.style.transform = 'translate(-50%, -50%)';
                         }, 3000);
-                        
+
                     }, 5000); // Wait 5 seconds
                 } else {
                     // Cancel timer if user scrolls away
@@ -174,10 +200,10 @@ document.addEventListener('DOMContentLoaded', () => {
         msContainer.addEventListener('touchstart', startSecret, { passive: true });
         msContainer.addEventListener('touchend', resetSecret);
         msContainer.addEventListener('touchcancel', resetSecret);
-        
+
         // Cancel if user drags/scrolls while holding
         msContainer.addEventListener('touchmove', resetSecret, { passive: true });
-        
+
         // Optional: Prevent context menu on long press for this element specifically
         msContainer.addEventListener('contextmenu', (e) => {
             e.preventDefault();
@@ -193,7 +219,7 @@ class VideoScrubber {
     constructor(video) {
         this.video = video;
         this.duration = 0;
-        
+
         const onMetadata = () => {
             this.duration = video.duration;
             console.log(`[VideoScrubber] Metadata loaded for ${video.src}, duration: ${this.duration}`);
@@ -232,7 +258,7 @@ class ImageSequenceScrubber {
         // Handle resizing
         this.resize();
         window.addEventListener('resize', () => this.resize());
-        
+
         // Start loading
         this.loadImages();
     }
