@@ -873,6 +873,10 @@ h1, h2, h3, h4, h5, h6 {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+
 .resize {
   resize: both;
 }
@@ -996,6 +1000,10 @@ h1, h2, h3, h4, h5, h6 {
 .border-\[\#1A1A3D\] {
   --tw-border-opacity: 1;
   border-color: rgb(26 26 61 / var(--tw-border-opacity, 1));
+}
+
+.border-gray-600\/50 {
+  border-color: rgb(75 85 99 / 0.5);
 }
 
 .border-primary\/30 {
@@ -1306,6 +1314,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .opacity-0 {
   opacity: 0;
+}
+
+.opacity-50 {
+  opacity: 0.5;
 }
 
 .shadow-2xl {
