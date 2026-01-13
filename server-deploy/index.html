@@ -47,6 +47,21 @@
 </head>
 
 <body>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=106240584', 'ym');
+
+        ym(106240584, 'init', { ssr: true, clickmap: true, ecommerce: "dataLayer", accurateTrackBounce: true, trackLinks: true });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/106240584" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
 
     <!-- Snow Effect Canvas -->
     <canvas id="snow-canvas"></canvas>
@@ -150,10 +165,7 @@
                 Присоединяйся к тысячам участников, соревнуйся в зимних дисциплинах и встречайся с легендами спорта.
             </p>
 
-            <a href="#masterclasses"
-                class="inline-block bg-primary text-primary-foreground text-base px-6 py-3 rounded-full font-black uppercase tracking-wider hover:bg-accent transition transform hover:scale-105 shadow-[0_0_15px_rgba(0,229,255,0.5)]">
-                Стать участником
-            </a>
+
         </div>
     </section>
 
@@ -216,7 +228,7 @@
                 <div
                     class="reveal delay-200 bg-white/5 rounded-2xl overflow-hidden border border-white/10 group hover:border-primary/50 transition flex flex-col">
                     <div class="h-64 overflow-hidden relative">
-                        <img src="assets/images/hokkey-power.webp" alt="Каток"
+                        <img src="assets/images/katok.webp" alt="Каток"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
                     <div class="p-8 flex flex-col flex-grow">
@@ -226,10 +238,7 @@
                             Большой открытый каток позволяет проводить массовые мероприятия по хоккею и фигурному
                             катанию с участием школьников и студентов.
                         </p>
-                        <div>
-                            <a href="https://gorizonty.mos.ru/events/27537"
-                                class="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-full font-bold hover:bg-accent transition transform hover:scale-105 text-sm uppercase tracking-wider">Регистрация</a>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -240,7 +249,7 @@
     <section id="masterclasses" class="py-20 section-container">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12 reveal">
-                <h2 class="text-3xl md:text-5xl mb-4">Звездные мастер-классы</h2>
+                <h2 class="text-3xl md:text-5xl mb-4">ЗВЕЗДНЫЕ ГОСТИ</h2>
                 <p class="text-gray-400 max-w-2xl mx-auto">Уникальная возможность поучиться у лучших. Олимпийские
                     чемпионы и профессионалы поделятся секретами мастерства.</p>
             </div>
@@ -263,8 +272,7 @@
                             Олимпийский чемпион поделится стратегиями подготовки к соревнованиям, техниками эффективного
                             скольжения и методами улучшения выносливости для достижения высоких результатов.
                         </p>
-                        <a href="#"
-                            class="mt-auto inline-block w-full text-center bg-primary/10 text-gray-500 border border-gray-600/50 px-4 py-2 rounded-full font-bold opacity-50 cursor-not-allowed pointer-events-none text-sm">СКОРО</a>
+
                     </div>
                 </div>
 
@@ -285,8 +293,7 @@
                             Олимпийский чемпион поделится опытом хоккейных тренировок и наставничества, раскрывая
                             секреты профессионального успеха на льду.
                         </p>
-                        <a href="#register"
-                            class="mt-auto inline-block w-full text-center bg-primary/10 text-primary border border-primary/50 px-4 py-2 rounded-full font-bold hover:bg-primary hover:text-primary-foreground transition text-sm">Регистрация</a>
+
                     </div>
                 </div>
 
@@ -327,8 +334,7 @@
                         <p class="text-gray-300 text-sm mb-6 leading-relaxed flex-grow">
                             Уникальный мастер-класс по сноуборду и трюкам джиббинга от профессионального спортсмена.
                         </p>
-                        <a href="#"
-                            class="mt-auto inline-block w-full text-center bg-primary/10 text-gray-500 border border-gray-600/50 px-4 py-2 rounded-full font-bold opacity-50 cursor-not-allowed pointer-events-none text-sm">СКОРО</a>
+
                     </div>
                 </div>
             </div>
@@ -346,7 +352,19 @@
                     <img src="assets/images/ski-run.webp" alt="Лыжные гонки"
                         class="w-full h-48 object-cover rounded-lg mb-4">
                     <h3 class="text-xl font-bold mb-2">Лыжные гонки</h3>
-                    <p class="text-sm text-gray-300 mb-6 flex-grow">Участники соревнуются на трассе 1 км.</p>
+                    <p class="text-sm text-gray-300 mb-2">Вас ждёт захватывающий лыжный забег, где каждый сможет
+                        проверить свои силы на дистанциях 1 и 2 км.</p>
+                    <div class="w-full text-left text-xs text-gray-400 mb-6 flex-grow">
+                        <strong>Категории:</strong>
+                        <ul class="list-decimal list-inside mt-1 space-y-1">
+                            <li>Обучающиеся колледжей 1999-2007 г.р.</li>
+                            <li>Обучающиеся ОО – 2007-2009 г.р.; 2010-2015 г.р.</li>
+                            <li>«ПРОФИ» - Эстафета (сотрудник школы, девочка 2014 г.р. и ст., мальчик 2014 г.р. и ст.)
+                            </li>
+                            <li>Работники ОО</li>
+                            <li>Обучающиеся ОО с ОВЗ – 2008-2016г.р.; студенты – 1999-2008 г.р.</li>
+                        </ul>
+                    </div>
                     <a href="#"
                         class="inline-block bg-primary/10 text-gray-500 border border-gray-600/50 px-6 py-2 rounded-full font-bold opacity-50 cursor-not-allowed pointer-events-none text-sm">СКОРО</a>
                 </div>
@@ -357,8 +375,12 @@
                     <img src="assets/images/tag-ragby.webp" alt="Тэг-регби"
                         class="w-full h-48 object-cover rounded-lg mb-4">
                     <h3 class="text-xl font-bold mb-2">Тэг-регби</h3>
-                    <p class="text-sm text-gray-300 mb-6 flex-grow">Этот формат регби привлекает специальными лентами –
-                        «тэгами», которые игроки должны срывать у соперников вместо обычных силовых приемов.</p>
+                    <p class="text-sm text-gray-300 mb-6 flex-grow text-left">В лучшую игру с овальным мячом можно
+                        играть и зимой! Попробуй себя в турнире по тэг-регби на снегу!<br><br>
+                        В одну команду можно заявить до 12 человек. Количество девочек и мальчиков в команде не имеет
+                        значения.<br>
+                        От одной школы допускается только одна команда в каждом возрасте: 2011/12 г.р., 2013/14 г.р.,
+                        2015/16 г.р., команды студентов.</p>
                     <a href="https://admin.schoolsportmos.ru/admin/"
                         class="inline-block bg-primary/10 text-primary border border-primary/50 px-6 py-2 rounded-full font-bold hover:bg-primary hover:text-primary-foreground transition text-sm">Регистрация</a>
                 </div>
@@ -369,8 +391,11 @@
                     <img src="assets/images/volley.webp" alt="Волейбол на снегу"
                         class="w-full h-48 object-cover rounded-lg mb-4">
                     <h3 class="text-xl font-bold mb-2">Волейбол на снегу</h3>
-                    <p class="text-sm text-gray-300 mb-6 flex-grow">Этот необычный формат требует ловкости и сноровки,
-                        превращая привычную игру в зимнее приключение на свежем воздухе.</p>
+                    <p class="text-sm text-gray-300 mb-6 flex-grow text-left">Считаешь, что волейбол - это зал и
+                        идеальный пол? Попробуй сыграть на улице, еще и зимой!<br><br>
+                        <strong>Участники:</strong> Команды юношей и девушек 2007-2010 г.р.<br>
+                        Игровой состав на площадке - 4 человека.
+                    </p>
                     <a href="https://admin.schoolsportmos.ru/admin/"
                         class="inline-block bg-primary/10 text-primary border border-primary/50 px-6 py-2 rounded-full font-bold hover:bg-primary hover:text-primary-foreground transition text-sm">Регистрация</a>
                 </div>
@@ -381,8 +406,11 @@
                     <img src="assets/images/yukigassen.webp" alt="Игра в снежки"
                         class="w-full h-48 object-cover rounded-lg mb-4">
                     <h3 class="text-xl font-bold mb-2">Игра в снежки</h3>
-                    <p class="text-sm text-gray-300 mb-6 flex-grow">Командная игра в снежки с японскими традициями,
-                        требующая стратегического мышления и быстрой реакции.</p>
+                    <p class="text-sm text-gray-300 mb-6 flex-grow text-left">Считаешь, что снежки — это просто детская
+                        забава? Попробуй в настоящей зимней битве на фестивале — с тактикой и азартом!<br><br>
+                        <strong>Участники:</strong> команды ОО 2011–2014 г.р.<br>
+                        Состав команды — 10 человек.
+                    </p>
                     <a href="https://admin.schoolsportmos.ru/admin/"
                         class="inline-block bg-primary/10 text-primary border border-primary/50 px-6 py-2 rounded-full font-bold hover:bg-primary hover:text-primary-foreground transition text-sm">Регистрация</a>
                 </div>
@@ -405,8 +433,12 @@
                     <img src="assets/images/estafeta.webp" alt="Футбол в валенках"
                         class="w-full h-48 object-cover rounded-lg mb-4">
                     <h3 class="text-xl font-bold mb-2">Футбол в валенках</h3>
-                    <p class="text-sm text-gray-300 mb-6 flex-grow">Весёлая зимняя игра на снегу: команды соревнуются в
-                        валенках, что делает матч непредсказуемым и смешным.</p>
+                    <p class="text-sm text-gray-300 mb-6 flex-grow text-left">Попробуй сыграть в футбол когда под ногами
+                        не привычная трава, а пушистый снег, и на ногах — не профессиональные бутцы, а валенки!<br><br>
+                        <strong>Участники:</strong> сборные команды юношей и девушек (в любом процентном соотношении)
+                        2012-2013 и 2010-2011 г.р.<br>
+                        Играем 5 на 5, два тайма по 8 минут, снег, валенки и красный мяч.
+                    </p>
                     <a href="https://admin.schoolsportmos.ru/admin/"
                         class="inline-block bg-primary/10 text-primary border border-primary/50 px-6 py-2 rounded-full font-bold hover:bg-primary hover:text-primary-foreground transition text-sm">Регистрация</a>
                 </div>
@@ -417,10 +449,57 @@
                     <img src="assets/images/rock-paper-scissors.webp" alt="Камень, ножницы, бумага"
                         class="w-full h-48 object-cover rounded-lg mb-4">
                     <h3 class="text-xl font-bold mb-2">Камень, ножницы, бумага</h3>
-                    <p class="text-sm text-gray-300 mb-6 flex-grow">Быстрый, азартный и абсолютно равный шанс на победу.
-                        Кто окажется самым везучим и расчётливым?</p>
-                    <a href="#"
-                        class="inline-block bg-primary/10 text-gray-500 border border-gray-600/50 px-6 py-2 rounded-full font-bold opacity-50 cursor-not-allowed pointer-events-none text-sm">СКОРО</a>
+                    <p class="text-sm text-gray-300 mb-6 flex-grow text-left">"Камень, Ножницы, Бумага" - игра знакомая
+                        всем с детства. Первый чемпионат среди школьников и студентов. Испытай свою удачу и стань первым
+                        чемпионом!<br><br>
+                        <strong>Участники:</strong> школьники от 7 лет и студенты.
+                    </p>
+                    <a href="https://mcvp.ru/city_events/sport/festivali/igra-kamen-nozhniczy-bumaga"
+                        class="inline-block bg-primary/10 text-primary border border-primary/50 px-6 py-2 rounded-full font-bold hover:bg-primary hover:text-primary-foreground transition text-sm">Регистрация</a>
+                </div>
+
+                <!-- 8. Лига Героев -->
+                <div
+                    class="reveal delay-300 bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:border-primary/50 transition flex flex-col items-center h-full">
+                    <img src="assets/images/league-of-heroes.webp" alt="Лига Героев"
+                        class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2">Военно-спортивная игра "Лига Героев"</h3>
+                    <p class="text-sm text-gray-300 mb-6 flex-grow text-left">«Зимняя полоса препятствий» — это
+                        динамичная эстафета, в которой участники штурмуют снежные траншеи, преодолевают крутые горки и
+                        скользкие сети.<br><br>
+                        <strong>Участники:</strong> 7–8 классы, 9–10 классы, обучающиеся СПО.<br>
+                        <strong>Состав команды:</strong> 8 человек (6 юношей и 2 девушки).
+                    </p>
+                    <a href="https://mcvp.ru/city_events/voenno-sportivnaya-igra-liga-geroev"
+                        class="inline-block bg-primary/10 text-primary border border-primary/50 px-6 py-2 rounded-full font-bold hover:bg-primary hover:text-primary-foreground transition text-sm">Регистрация</a>
+                </div>
+
+                <!-- 9. Свободное катание -->
+                <div
+                    class="reveal delay-300 bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:border-primary/50 transition flex flex-col items-center h-full">
+                    <img src="assets/images/freeskate.webp" alt="Свободное катание"
+                        class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2">Свободное катание</h3>
+                    <p class="text-sm text-gray-300 mb-6 flex-grow text-left">Приглашаем всех желающих на свободное
+                        катание на льду!
+                        Примите участие в этом увлекательном мероприятии, где вы сможете насладиться катанием,
+                        познакомиться с новыми людьми и провести активное время на свежем воздухе.<br>
+                        Ждём всех любителей спорта и зимних развлечений!</p>
+                    <a href="https://gorizonty.mos.ru/events/27537"
+                        class="inline-block bg-primary/10 text-primary border border-primary/50 px-6 py-2 rounded-full font-bold hover:bg-primary hover:text-primary-foreground transition text-sm">Регистрация</a>
+                </div>
+
+                <!-- 10. Мастер-класс по фигурному катанию -->
+                <div
+                    class="reveal delay-300 bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:border-primary/50 transition flex flex-col items-center h-full">
+                    <img src="assets/images/master-class.webp" alt="Мастер-класс по фигурному катанию"
+                        class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2">Мастер-класс по фигурному катанию</h3>
+                    <p class="text-sm text-gray-300 mb-6 flex-grow text-left">Почувствуйте магию льда! Профессиональные
+                        тренеры помогут вам освоить базовые элементы или усовершенствовать технику фигурного катания.
+                        Мастер-класс подходит для участников с любым уровнем подготовки.</p>
+                    <a href="https://gorizonty.mos.ru/events/27536"
+                        class="inline-block bg-primary/10 text-primary border border-primary/50 px-6 py-2 rounded-full font-bold hover:bg-primary hover:text-primary-foreground transition text-sm">Регистрация</a>
                 </div>
             </div>
         </div>
@@ -434,24 +513,33 @@
                 <div class="md:flex items-center justify-between gap-12">
                     <div class="mb-8 md:mb-0">
                         <h2 class="text-3xl md:text-4xl mb-4">Спортивный квест</h2>
-                        <p class="text-lg text-gray-200 mb-6">Преврати посещение фестиваля в игру. Зарабатывай баллы и
-                            получай призы.</p>
+                        <p class="text-lg text-gray-200 mb-6">Мы превратили фестиваль в большое приключение. Стань его
+                            частью:</p>
                         <ul class="space-y-4 text-gray-300">
                             <li class="flex gap-3">
-                                <span class="text-primary text-xl">•</span>
-                                <div>Каждый участник получает карточку с заданиями.</div>
+                                <span class="text-primary text-xl font-bold">1.</span>
+                                <div><strong>Проходи этапы:</strong> Участвуй в весёлых конкурсах и испытаниях.</div>
                             </li>
                             <li class="flex gap-3">
-                                <span class="text-primary text-xl">•</span>
-                                <div>Участники проходят спортивные испытания и конкурсы, отмечая выполнение каждого
-                                    этапа.</div>
+                                <span class="text-primary text-xl font-bold">2.</span>
+                                <div><strong>Выполняй задания:</strong> Исследуй разные локации фестиваля — на каждой
+                                    тебя ждёт что-то интересное!</div>
                             </li>
                             <li class="flex gap-3">
-                                <span class="text-primary text-xl">•</span>
-                                <div>Все завершившие испытания получают приз, а также участвуют в розыгрыше главного
-                                    приза.</div>
+                                <span class="text-primary text-xl font-bold">3.</span>
+                                <div><strong>Собирай отметки:</strong> Каждое пройденное испытание фиксируй в своей
+                                    индивидуальной карточке участника.</div>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="text-primary text-xl font-bold">4.</span>
+                                <div><strong>Получай призы:</strong> Заполнил всю карточку? Забирай заслуженную награду!
+                                </div>
                             </li>
                         </ul>
+                        <div class="mt-12 p-4 bg-primary/10 rounded-xl border border-primary/20">
+                            <p class="text-gray-200"><strong>Главный розыгрыш:</strong> Собери все отметки и получи шанс
+                                поучаствовать в розыгрыше главного приза.</p>
+                        </div>
                     </div>
 
                 </div>
@@ -523,8 +611,8 @@
                     <div class="absolute -left-[41px] top-0 w-5 h-5 bg-primary rounded-full border-4 border-[#1A1A3D]">
                     </div>
                     <span class="text-primary font-bold text-xl block mb-1">09:00</span>
-                    <h3 class="text-2xl mb-2">Сбор гостей и регистрация</h3>
-                    <p class="text-gray-400">Получение стартовых пакетов, разминка.</p>
+                    <h3 class="text-2xl mb-2">Запуск участников и зрителей</h3>
+                    <p class="text-gray-400">Сбор гостей, получение стартовых пакетов.</p>
                 </div>
                 <!-- Item -->
                 <div class="relative reveal delay-100">
@@ -538,23 +626,23 @@
                 <div class="relative reveal delay-200">
                     <div class="absolute -left-[41px] top-0 w-5 h-5 bg-primary rounded-full border-4 border-[#1A1A3D]">
                     </div>
-                    <span class="text-primary font-bold text-xl block mb-1">11:00</span>
-                    <h3 class="text-2xl mb-2">Старт соревнований и мастер-классов</h3>
-                    <p class="text-gray-400">Начало работы всех спортивных площадок.</p>
+                    <span class="text-primary font-bold text-xl block mb-1">10:30</span>
+                    <h3 class="text-2xl mb-2">Старт соревнований и активностей</h3>
+                    <p class="text-gray-400">Начало работы спортивных площадок и интерактивных зон.</p>
                 </div>
                 <!-- Item -->
                 <div class="relative reveal delay-200">
                     <div class="absolute -left-[41px] top-0 w-5 h-5 bg-primary rounded-full border-4 border-[#1A1A3D]">
                     </div>
-                    <span class="text-primary font-bold text-xl block mb-1">14:00</span>
-                    <h3 class="text-2xl mb-2">Развлекательная программа</h3>
-                    <p class="text-gray-400">Концерты, конкурсы и розыгрыши призов.</p>
+                    <span class="text-primary font-bold text-xl block mb-1">13:00</span>
+                    <h3 class="text-2xl mb-2">Старт мастер-классов</h3>
+                    <p class="text-gray-400">Начало звездных мастер-классов.</p>
                 </div>
                 <!-- Item -->
                 <div class="relative reveal delay-300">
                     <div class="absolute -left-[41px] top-0 w-5 h-5 bg-primary rounded-full border-4 border-[#1A1A3D]">
                     </div>
-                    <span class="text-primary font-bold text-xl block mb-1">17:00</span>
+                    <span class="text-primary font-bold text-xl block mb-1">16:00</span>
                     <h3 class="text-2xl mb-2">Награждение и закрытие</h3>
                     <p class="text-gray-400">Вручение медалей победителям, финальное шоу.</p>
                 </div>
