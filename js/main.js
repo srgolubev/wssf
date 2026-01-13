@@ -335,3 +335,31 @@ class ImageSequenceScrubber {
         this.ctx.drawImage(img, ox, oy, dw, dh);
     }
 }
+
+// Cookie Consent
+document.addEventListener('DOMContentLoaded', () => {
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptCookiesBtn = document.getElementById('accept-cookies');
+
+    if (cookieBanner && acceptCookiesBtn) {
+        // Check if user has already accepted cookies
+        if (!localStorage.getItem('cookieConsent')) {
+            // Show banner after a small delay
+            setTimeout(() => {
+                cookieBanner.classList.remove('hidden');
+                // Small timeout to allow display:block to apply before transition
+                requestAnimationFrame(() => {
+                    cookieBanner.classList.remove('translate-y-full');
+                });
+            }, 1000);
+        }
+
+        acceptCookiesBtn.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'true');
+            cookieBanner.classList.add('translate-y-full');
+            setTimeout(() => {
+                cookieBanner.classList.add('hidden');
+            }, 500); // Wait for transition to finish
+        });
+    }
+});
