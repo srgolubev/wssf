@@ -279,7 +279,8 @@ class ImageSequenceScrubber {
         for (let i = 1; i <= this.count; i++) {
             const img = new Image();
             const num = i.toString().padStart(3, '0');
-            const src = `${this.path}/frame_${num}.webp`;
+            const ext = this.canvas.dataset.framesExt || '.webp';
+            const src = `${this.path}/frame_${num}${ext}`;
 
             img.onload = () => {
                 this.loadedCount++;
